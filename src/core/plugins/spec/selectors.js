@@ -137,7 +137,14 @@ export const definitions = createSelector(
 
 export const basePath = createSelector(
     spec,
-    spec => spec.get("basePath")
+    spec => {
+      const basePath = spec.get("basePath")
+      if (basePath === "/") {
+        ""
+      } else {
+        basePath
+      }
+    }
 )
 
 export const host = createSelector(
